@@ -59,38 +59,35 @@
         <!-- 3 Sides View and Reset Button -->  
         
         
-        <a-text value="Top" rotation="-90 0 0" geometry="primitive:plane; height:0 ; width:0.5; color: blue" aling="center" position="2 -1 1"
+        <a-text value="Top" rotation="-90 0 0" geometry="primitive:plane; height:0 ; width:0.5; color: blue" aling="center" position="0 -1 -2"
         hoverable 
         class="UIbutton"
         event-set__enter="_event: hover-start; color: red" 
         event-set__leave="_event: hover-end; color: blue" 
-        event-set__tarcol1="_event: click; _target: #invisiblebox; rotation: 90 0 0"
-        event-set__tarcol2="_event: click; _target: #invisiblebox; position: 0 0 1"></a-text>
+        event-set__tarcol1="_event: click; _target: #invisiblebox; rotation: 90 0 0"></a-text>
 
-        <a-text value="Front" rotation="-90 0 0" geometry="primitive:plane; height:0 ; width:0.5; color: blue" aling="center" position="2 -1 2"
+        <a-text value="Front" rotation="-90 0 0" geometry="primitive:plane; height:0 ; width:0.5; color: blue" aling="center" position="0 1 1"
         hoverable 
         class="UIbutton"
         event-set__enter="_event: hover-start; color: red" 
         event-set__leave="_event: hover-end; color: blue" 
-        event-set__tarcol1="_event: click; _target: #invisiblebox; rotation: 0 0 0"
-        event-set__tarcol2="_event: click; _target: #invisiblebox; position: 0 0 2"></a-text>
+        event-set__tarcol1="_event: click; _target: #invisiblebox; rotation: 0 0 0"></a-text>
 
-        <a-text value="Left" rotation="-90 0 0" geometry="primitive:plane; height:0 ; width:0.5; color: blue" aling="center" position="2 -1 3"
+        <a-text value="Left" rotation="-90 0 0" geometry="primitive:plane; height:0 ; width:0.5; color: blue" aling="center" position="-2 -1 0"
         hoverable 
         class="UIbutton"
         event-set__enter="_event: hover-start; color: red" 
         event-set__leave="_event: hover-end; color: blue" 
-        event-set__tarcol1="_event: click; _target: #invisiblebox; rotation: 0 0 -90"
-        event-set__tarcol2="_event: click; _target: #invisiblebox; position: 0 0 3"></a-text>
+        event-set__tarcol1="_event: click; _target: #invisiblebox; rotation: 0 0 -90"></a-text>
 
         
-        <a-text value="Reset" rotation="-90 0 0" geometry="primitive:plane; height:0 ; width:0.5; color: black" aling="center" position="2 -1 4"
+        <a-text value="Reset" rotation="-90 0 0" geometry="primitive:plane; height:0 ; width:0.5; color: black" aling="center" position="2 -1 -1"
         hoverable 
         class="UIbutton"
         event-set__enter="_event: hover-start; color: red" 
         event-set__leave="_event: hover-end; color: black" 
-        event-set__tarcol1="_event: click; _target: #invisiblebox; rotation: 30 0 -45"
-        event-set__tarcol2="_event: click; _target: #invisiblebox; position: 0 0 4"></a-text>
+        event-set__tarcol1="_event: click; _target: #invisiblebox; rotation: 30 0 -45"></a-text>
+
     </a-marker>
 
 
