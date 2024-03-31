@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- this is necessary for calling the programme Aframe -->
+    <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+    
+    <!-- the following is necessary only for AR -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    
+    <!-- the following is for events in a-frame -->
+    <script src="https://unpkg.com/aframe-event-set-component@4.0.0/dist/aframe-event-set-component.min.js"></script>
+    
+    <!-- the following is for Super-hands -->
+    <script src="https://unpkg.com/super-hands@^2.1.0/dist/super-hands.min.js"></script>
+ 
+</head>
+
+
+<body>
+    
+    <a-scene embedded arjs>
+        
+        <a-assets>
+            <a-asset-item id="house" responseType="arraybuffer" src="/house/scene.gltf"></a-asset-item>
+        </a-assets>
+        
+        <a-assets>
+            <a-mixin id="progressivecontrolsgazedefault"
+                position="0 0 -0.5" raycaster= "objects: .UIbutton"
+                cursor="fuse: true; fuseTimeout: 1000" 
+                geometry="primitive: sphere; radius: 0.0025" 
+                material="color: #999999; shader: flat" 
+                super-hands="colliderEvent: raycaster-intersection;
+                    colliderEventProperty: els;
+                    colliderEndEvent: raycaster-intersection-cleared;
+                    colliderEndEventProperty: el">
+            </a-mixin> 
+            <a-mixin id="progressivecontrolspointdefault"
+                line="color: #FFOOFF" raycaster="showLine: true; objects: .UIbutton" 
+                super-hands="colliderEvent: raycaster-intersection;
+                    colliderEventProperty: els;
+                    colliderEdEvent: raycaster-intersection-cleared;
+                    colliderEndEventProperty: el">
+            </a-mixin> 
+        </a-assets>
+
+        <a-entity progressive-controls> </a-entity>
+
+        <!-- Main Screen -->
+        
+        <!-- <a-box id="screen" color="#212121" position="0 2.75 -9" scale= "8 4 0.1" hoverable 
+        event-set__rescol="_event: click; color: #212121"> </a-box> 
+        -->
+
+        <a-marker type="pattern" url="pattern-house.patt">
+            <!--The 3D model is embeded in a invisible box for rotating animation.-->
+            <a-box id="invisiblebox" position="0 0 0" rotation="0 0 0" material="opacity:0;"> 
+                <a-entity gltf-model="#house" position="0 0 0" rotation="-90 0 0" scale="0.4 0.4 0.4" ></a-entity>       
+                <a-animation attribute="rotation" to="0 0 360" repeat="1" dur="3000" easing="linear"></a-animation>
+            </a-box>    
+        
+        <!-- 3 Sides View and Reset Button -->  
+        
+        
+        <a-text value="Top" rotation="-90 0 0" geometry="primitive:plane; height:0 ; width:0.5; color: blue" aling="center" position="2 -1 1"
+        hoverable 
+        class="UIbutton"
+        event-set__enter="_event: hover-start; color: red" 
+        event-set__leave="_event: hover-end; color: blue" 
+        event-set__tarcol1="_event: click; _target: #invisiblebox; rotation: 90 0 0"
+        event-set__tarcol2="_event: click; _target: #invisiblebox; position: 0 0 1"></a-text>
+
+        <a-text value="Front" rotation="-90 0 0" geometry="primitive:plane; height:0 ; width:0.5; color: blue" aling="center" position="2 -1 2"
+        hoverable 
+        class="UIbutton"
+        event-set__enter="_event: hover-start; color: red" 
+        event-set__leave="_event: hover-end; color: blue" 
+        event-set__tarcol1="_event: click; _target: #invisiblebox; rotation: 0 0 0"
+        event-set__tarcol2="_event: click; _target: #invisiblebox; position: 0 0 2"></a-text>
+
+        <a-text value="Left" rotation="-90 0 0" geometry="primitive:plane; height:0 ; width:0.5; color: blue" aling="center" position="2 -1 3"
+        hoverable 
+        class="UIbutton"
+        event-set__enter="_event: hover-start; color: red" 
+        event-set__leave="_event: hover-end; color: blue" 
+        event-set__tarcol1="_event: click; _target: #invisiblebox; rotation: 0 0 -90"
+        event-set__tarcol2="_event: click; _target: #invisiblebox; position: 0 0 3"></a-text>
+
+        
+        <a-text value="Reset" rotation="-90 0 0" geometry="primitive:plane; height:0 ; width:0.5; color: black" aling="center" position="2 -1 4"
+        hoverable 
+        class="UIbutton"
+        event-set__enter="_event: hover-start; color: red" 
+        event-set__leave="_event: hover-end; color: black" 
+        event-set__tarcol1="_event: click; _target: #invisiblebox; rotation: 30 0 -45"
+        event-set__tarcol2="_event: click; _target: #invisiblebox; position: 0 0 4"></a-text>
+    </a-marker>
+
+
+        <a-camera position="0 0 2.5"></a-camera>
+
+    </a-scene>
+    
+   
+</body>
+
+</html>
