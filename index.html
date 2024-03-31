@@ -48,12 +48,9 @@
 
         <!-- Main Screen -->
         
-        <!-- <a-box id="screen" color="#212121" position="0 2.75 -9" scale= "8 4 0.1" hoverable 
-        event-set__rescol="_event: click; color: #212121"> </a-box> 
-        -->
-
+       
         <a-marker type="pattern" url="pattern-house.patt">
-            <!--The 3D model is embeded in a invisible box for rotating animation.-->
+            <!--The 3D model is embedded in an invisible box for rotating animation.-->
             <a-box id="invisiblebox" position="0 0 0" rotation="0 0 0" material="opacity:0;"> 
                 <a-entity gltf-model="#house" position="0 0 0" rotation="-90 0 0" scale="0.4 0.4 0.4" ></a-entity>       
                 <a-animation attribute="rotation" to="0 0 360" repeat="1" dur="3000" easing="linear"></a-animation>
